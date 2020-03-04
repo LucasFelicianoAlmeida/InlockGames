@@ -10,7 +10,70 @@ namespace Senai.InLock.WebApi.Repository
 {
     public class JogoRepository : IJogoRepository
     {
-        string stringConexao = "Data Source=DEV18\\SQLEXPRESS; initial catalog=InlockGames_Manhã; user Id=sa; pwd=sa@132";
+        string stringConexao = "Data Source=DESKTOP-JCJB5FC; initial catalog=InlockGames_Manhã; integrated security=true;";
+
+        public void Atualizar(int id, JogoDomain jogoAtualizado)
+        {
+            using(SqlConnection con = new SqlConnection(stringConexao))
+            {
+                string queryUpdate = "UPDATE JOGO " +
+                    "SET TituloJogo = @TITULOJOGO, Descricao = @Descricao, DataLan = @DATALAN, Valor = @VALOR, IdEstudio = @IDESTUDIO " +
+                    "WHERE idJogo = @ID;";
+
+                using(SqlCommand cmd = new SqlCommand(queryUpdate,con))
+                {
+                    cmd.Parameters.AddWithValue("@ID", id);
+                    cmd.Parameters.AddWithValue("@TITULOJOGO", jogoAtualizado.TituloJogo);
+                    cmd.Parameters.AddWithValue("@DESCRICAO", jogoAtualizado.Descricao);
+                    cmd.Parameters.AddWithValue("@DATALAN", jogoAtualizado.DataLan);
+                    cmd.Parameters.AddWithValue("@VALOR", jogoAtualizado.Valor);
+                    cmd.Parameters.AddWithValue("@IDESTUDIO", jogoAtualizado.IdEstudio);
+
+                    // Abre a conexão com o banco de dados
+                    con.Open();
+
+                    // Executa o comando
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public JogoDomain BuscarPorId(int id)
+        {
+            using(SqlConnection con = new SqlConnection(stringConexao))
+            {
+                string querySelectById = "SELECT idJogo, TituloJogo, Descricao, DataLan, Valor, IdEstudio FROM Jogo "
+                    + "WHERE IdJogo = @ID";
+
+                con.Open();
+
+                SqlDataReader rdr;
+
+                using(SqlCommand cmd = new SqlCommand(querySelectById, con))
+                {
+                    cmd.Parameters.AddWithValue("@ID", id);
+
+                    rdr = cmd.ExecuteReader();
+
+                    if(rdr.Read())
+                    {
+                        JogoDomain jogo = new JogoDomain
+                        {
+                            TituloJogo = rdr["TituloJogo"].ToString(),
+                            Descricao = rdr["Descricao"].ToString(),
+                            DataLan = Convert.ToDateTime(rdr["DataLan"]),
+                            Valor = Convert.ToDecimal(rdr["Valor"]),
+                            IdEstudio = Convert.ToInt32(rdr["idEstudio"])
+                        };
+                        return jogo;
+
+                    }
+                    return null;
+                }
+
+               
+            }
+        }
 
         public void Cadastrar(JogoDomain novoJogo)
         {
@@ -63,8 +126,8 @@ namespace Senai.InLock.WebApi.Repository
 
             using (SqlConnection con = new SqlConnection(stringConexao))
             {
-                string querySelectAll = "SELECT idJogo, TituloJogo, Descricao, DataLan, Valor, idEstudio, Estudio.Nome FROM Jogo "
-                    + "INNER JOIN Estudion ON Estudio.idEstudio = Jogo.idJogo";
+                string querySelectAll = "SELECT idJogo, TituloJogo, Descricao, DataLan, Valor, idEstudio FROM Jogo ";
+                    
 
                 con.Open();
 
@@ -84,7 +147,7 @@ namespace Senai.InLock.WebApi.Repository
                             DataLan = Convert.ToDateTime(rdr["DataLan"]),
                             Valor = Convert.ToDecimal(rdr["Valor"]),
                             IdEstudio = Convert.ToInt32(rdr["idEstudio"])
-                            Estudio = 
+      
 
                         };
                         jogos.Add(jogo);

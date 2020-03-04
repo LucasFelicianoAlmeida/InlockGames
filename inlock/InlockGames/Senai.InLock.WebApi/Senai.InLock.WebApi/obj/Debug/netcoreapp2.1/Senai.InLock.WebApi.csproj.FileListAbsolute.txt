@@ -26,3 +26,17 @@ C:\Users\fic\Desktop\InlonckGames\inlock\InlockGames\Senai.InLock.WebApi\Senai.I
 C:\Users\fic\Desktop\InlonckGames\inlock\InlockGames\Senai.InLock.WebApi\Senai.InLock.WebApi\bin\Debug\netcoreapp2.1\Senai.InLock.WebApi.dll
 C:\Users\fic\Desktop\InlonckGames\inlock\InlockGames\Senai.InLock.WebApi\Senai.InLock.WebApi\bin\Debug\netcoreapp2.1\Senai.InLock.WebApi.pdb
 C:\Users\fic\Desktop\InlonckGames\inlock\InlockGames\Senai.InLock.WebApi\Senai.InLock.WebApi\obj\Debug\netcoreapp2.1\Senai.InLock.WebApi.RazorTargetAssemblyInfo.cache
+C:\Users\Usuario\Desktop\InlockGames\inlock\InlockGames\Senai.InLock.WebApi\Senai.InLock.WebApi\bin\Debug\netcoreapp2.1\Properties\launchSettings.json
+C:\Users\Usuario\Desktop\InlockGames\inlock\InlockGames\Senai.InLock.WebApi\Senai.InLock.WebApi\bin\Debug\netcoreapp2.1\Senai.InLock.WebApi.deps.json
+C:\Users\Usuario\Desktop\InlockGames\inlock\InlockGames\Senai.InLock.WebApi\Senai.InLock.WebApi\bin\Debug\netcoreapp2.1\Senai.InLock.WebApi.runtimeconfig.json
+C:\Users\Usuario\Desktop\InlockGames\inlock\InlockGames\Senai.InLock.WebApi\Senai.InLock.WebApi\bin\Debug\netcoreapp2.1\Senai.InLock.WebApi.runtimeconfig.dev.json
+C:\Users\Usuario\Desktop\InlockGames\inlock\InlockGames\Senai.InLock.WebApi\Senai.InLock.WebApi\bin\Debug\netcoreapp2.1\Senai.InLock.WebApi.dll
+C:\Users\Usuario\Desktop\InlockGames\inlock\InlockGames\Senai.InLock.WebApi\Senai.InLock.WebApi\bin\Debug\netcoreapp2.1\Senai.InLock.WebApi.pdb
+C:\Users\Usuario\Desktop\InlockGames\inlock\InlockGames\Senai.InLock.WebApi\Senai.InLock.WebApi\obj\Debug\netcoreapp2.1\Senai.InLock.WebApi.csprojAssemblyReference.cache
+C:\Users\Usuario\Desktop\InlockGames\inlock\InlockGames\Senai.InLock.WebApi\Senai.InLock.WebApi\obj\Debug\netcoreapp2.1\Senai.InLock.WebApi.RazorAssemblyInfo.cache
+C:\Users\Usuario\Desktop\InlockGames\inlock\InlockGames\Senai.InLock.WebApi\Senai.InLock.WebApi\obj\Debug\netcoreapp2.1\Senai.InLock.WebApi.RazorAssemblyInfo.cs
+C:\Users\Usuario\Desktop\InlockGames\inlock\InlockGames\Senai.InLock.WebApi\Senai.InLock.WebApi\obj\Debug\netcoreapp2.1\Senai.InLock.WebApi.AssemblyInfoInputs.cache
+C:\Users\Usuario\Desktop\InlockGames\inlock\InlockGames\Senai.InLock.WebApi\Senai.InLock.WebApi\obj\Debug\netcoreapp2.1\Senai.InLock.WebApi.AssemblyInfo.cs
+C:\Users\Usuario\Desktop\InlockGames\inlock\InlockGames\Senai.InLock.WebApi\Senai.InLock.WebApi\obj\Debug\netcoreapp2.1\Senai.InLock.WebApi.RazorTargetAssemblyInfo.cache
+C:\Users\Usuario\Desktop\InlockGames\inlock\InlockGames\Senai.InLock.WebApi\Senai.InLock.WebApi\obj\Debug\netcoreapp2.1\Senai.InLock.WebApi.dll
+C:\Users\Usuario\Desktop\InlockGames\inlock\InlockGames\Senai.InLock.WebApi\Senai.InLock.WebApi\obj\Debug\netcoreapp2.1\Senai.InLock.WebApi.pdb

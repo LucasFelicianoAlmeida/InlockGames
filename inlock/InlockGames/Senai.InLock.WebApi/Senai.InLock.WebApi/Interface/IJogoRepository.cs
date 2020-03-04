@@ -14,5 +14,9 @@ namespace Senai.InLock.WebApi.Interface
 
         void Deletar(int id);
 
+        JogoDomain BuscarPorId(int id);
+
+        void Atualizar(int id, JogoDomain jogoAtualizado);
+
     }
 }

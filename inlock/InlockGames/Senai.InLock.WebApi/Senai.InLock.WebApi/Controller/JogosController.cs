@@ -15,7 +15,7 @@ namespace Senai.InLock.WebApi.Controller
     [Route("api/[controller]")]
     [ApiController]
 
-    //[Authorize]
+    [Authorize]
     public class JogosController : ControllerBase
     {
         private IJogoRepository _jogoRepository { get; set; }
@@ -26,10 +26,56 @@ namespace Senai.InLock.WebApi.Controller
             
         }
 
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+        [HttpPut("{id}")]
+        public IActionResult Put(int id, JogoDomain jogoAtualizado)
         {
-            //JogoDomain jogoBusado = _jogoRepository.Deletar(id);
+            JogoDomain jogoBuscado = _jogoRepository.BuscarPorId(id);
+
+            if (jogoBuscado != null)
+            {
+                // Tenta atualizar o registro
+                try
+                {
+                    // Faz a chamada para o método .Atualizar();
+                    _jogoRepository.Atualizar(id, jogoAtualizado);
+
+                    // Retorna um status code 204 - No Content
+                    return NoContent();
+                }
+                // Caso ocorra algum erro
+                catch (Exception erro)
+                {
+                    // Retorna BadRequest e o erro
+                    return BadRequest(erro);
+                }
+            }
+
+            return NotFound
+                (
+                    new
+                    {
+                        mensagem = "Jogo não encontrado",
+                        erro = true
+                    }
+                );
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            JogoDomain jogoBuscado = _jogoRepository.BuscarPorId(id);
+
+            if (jogoBuscado != null)
+            {
+                // Caso seja, faz a chamada para o método .Deletar()
+                _jogoRepository.Deletar(id);
+
+                // e retorna um status code 200 - Ok com uma mensagem de sucesso
+                return Ok($"O jogo {id} foi deletado com sucesso!");
+            }
+
+            // Caso não seja, retorna um status code 404 - NotFound com a mensagem
+            return NotFound("Nenhum jogo encontrado para o identificador informado");
         }
         
 
@@ -52,6 +98,21 @@ namespace Senai.InLock.WebApi.Controller
 
             // Retorna o status code 201 - Created com a URI e o objeto cadastrado
             return Created("http://localhost:5000/api/Jogos", novojogo);
+        }
+
+        [HttpGet("{id}")]
+        public IActionResult GetById(int id)
+        {
+            JogoDomain jogoBuscado = _jogoRepository.BuscarPorId(id);
+
+            if (jogoBuscado != null)
+            {
+                // Caso seja, retorna os dados buscados e um status code 200 - Ok
+                return Ok(jogoBuscado);
+            }
+
+            // Caso não seja, retorna um status code 404 - NotFound com a mensagem
+            return NotFound("Nenhum funcionário encontrado para o identificador informado");
         }
 
 
